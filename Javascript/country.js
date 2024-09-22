@@ -11,6 +11,7 @@ const currencies = document.querySelector('.currencies')
 const languages = document.querySelector('.languages')
 const borderCountries = document.querySelector('.border-countries')
 const themeChanger = document.querySelector('.theme-changer')
+const titleCountry = document.querySelector('#country')
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 	.then((res) => res.json())
@@ -20,6 +21,8 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 		population.innerText = country.population.toLocaleString('en-IN')
 		region.innerText = country.region
 		topLevelDomain.innerText = country.tld.join(', ')
+
+		titleCountry.innerText = country.name.common
 
 		if (country.capital) {
 			capital.innerText = country.capital?.[0]
